@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarkMirror | Academic Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo"><span class="logo-icon">M</span> MarkMirror</div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#analytics">Analytics</a></li>
+                <li><a href="#leaderboard">Leaderboard</a></li>
+                <li><a href="#cgpa-distribution">CGPA Distribution</a></a></li>
+            </ul>
+            <a href="#results" class="nav-button">Explore</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="tag">✦ RESULT RADAR RUSH 2026</div>
+            <h1>Your Academic Journey,<br><span>One Dashboard.</span></h1>
+            <p>Welcome to MarkMirror – your smart academic result and performance analytics platform. Track marks,
+                calculate SGPA and CGPA, and explore your progress.</p>
+            <div class="hero-buttons">
+                <a href="#features" class="primary-btn">Explore Features →</a>
+                <a href="#about" class="secondary-btn">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <h2>01</h2><span>Smart Results</span>
+                </div>
+                <div>
+                    <h2>02</h2><span>Grade Analytics</span>
+                </div>
+                <div>
+                    <h2>03</h2><span>Performance Tracking</span>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-preview">
+            <h3>Academic Overview</h3>
+            <div class="preview-cards">
+                <div class="preview-card purple"><span>SGPA</span>
+                    <h2>8.65</h2>
+                </div>
+                <div class="preview-card blue"><span>CGPA</span>
+                    <h2>8.65</h2>
+                </div>
+            </div>
+            <div class="chart-preview">
+                <h4>Performance Overview</h4>
+                <div class="bars">
+                    <div class="bar" style="height:45%"></div>
+                    <div class="bar" style="height:70%"></div>
+                    <div class="bar" style="height:55%"></div>
+                    <div class="bar" style="height:90%"></div>
+                    <div class="bar" style="height:75%"></div>
+                    <div class="bar" style="height:100%"></div>
+                </div>
+            </div>
+            <p class="preview-note">✦ Sample dashboard preview</p>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-heading">
+            <span>WHAT WE OFFER</span>
+            <h2>Explore Our Features</h2>
+            <p>Everything you need to understand your academic performance.</p>
+        </div>
+        <div class="feature-grid">
+            <a class="feature-card" href="#results">
+                <div class="feature-icon">📄</div>
+                <h3>Hall Ticket Results</h3>
+                <p>Search examination results.</p>
+            </a>
+            <a class="feature-card" href="#gpa">
+                <div class="feature-icon">🎓</div>
+                <h3>SGPA & CGPA</h3>
+                <p>Calculate your grade points.</p>
+            </a>
+            <a class="feature-card" href="#analytics">
+                <div class="feature-icon">📊</div>
+                <h3>Subject Analytics</h3>
+                <p>View subject-wise performance.</p>
+            </a>
+            <a class="feature-card" href="#leaderboard">
+                <div class="feature-icon">🏆</div>
+                <h3>Topper Leaderboard</h3>
+                <p>Explore student rankings.</p>
+            </a>
+            <a class="feature-card" href="#cgpa-distribution">
+                <div class="feature-icon">📈</div>
+                <h3>CGPA Distribution</h3>
+                <p>View CGPA ranges.</p>
+            </a>
+            <a class="feature-card" href="#results">
+                <div class="feature-icon">🖨️</div>
+                <h3>Print Marksheet</h3>
+                <p>Print your marksheet.</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="results-section" id="results">
+        <div class="section-heading">
+            <span>STUDENT PORTAL</span>
+            <h2>Hall Ticket Results</h2>
+            <p>Enter your hall ticket number to view your sample marksheet.</p>
+        </div>
+
+        <div class="search-box">
+            <label for="hallTicket">Hall Ticket Number</label>
+            <input id="hallTicket" placeholder="Example: 26AIDS015">
+            <button class="search-btn" id="searchBtn">Search Results</button>
+            <p id="message" aria-live="polite"></p>
+            <p class="sample-hint">Demo IDs: 26AIDS001, 26AIDS002, 26AIDS003,26AIDS004,26AIDS005</p>
+        </div>
+
+        <div class="result-card" id="resultSection" hidden>
+            <div class="result-title">
+                <div><span>MARKMIRROR ACADEMIC REPORT</span>
+                    <h2>Semester Marksheet</h2>
+                </div>
+                <span class="result-status" id="resultStatus">PASS</span>
+            </div>
+            <div class="student-details">
+                <p>Student Name: <strong id="studentName"></strong></p>
+                <p>Hall Ticket: <strong id="studentTicket"></strong></p>
+                <p>Branch: <strong id="studentBranch"></strong></p>
+                <p>Semester: <strong id="studentSemester"></strong></p>
+            </div>
+            <div class="result-summary">
+                <div class="summary-card"><span>Total Marks</span>
+                    <h2 id="totalMarks">0</h2>
+                </div>
+                <div class="summary-card"><span>SGPA</span>
+                    <h2 id="studentSGPA">0</h2>
+                </div>
+                <div class="summary-card"><span>Subjects</span>
+                    <h2 id="subjectCount">0</h2>
+                </div>
+            </div>
+            <h3 class="table-heading">Subject-wise Marks</h3>
+            <div class="table-container">
+                <table class="marks-table">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Internal</th>
+                            <th>External</th>
+                            <th>Total</th>
+                            <th>Grade</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="marksTableBody"></tbody>
+                </table>
+            </div>
+            <button class="print-btn" id="printBtn">🖨️ Print Marksheet</button>
+        </div>
+    </section>
+
+    <section class="results-section" id="gpa">
+        <div class="section-heading">
+            <span>GRADE CALCULATOR</span>
+            <h2>SGPA & CGPA Calculator</h2>
+            <p>Enter grade points and credits separated by commas.</p>
+        </div>
+        <div class="search-box">
+            <label for="gradePoints">Grade Points (example: 8,9,7,10)</label>
+            <input id="gradePoints" placeholder="8,9,7,10">
+            <label for="credits" style="margin-top:18px">Credits (example: 3,3,4,2)</label>
+            <input id="credits" placeholder="3,3,4,2">
+            <button class="search-btn" id="calculateBtn">Calculate SGPA</button>
+            <p id="gpaMessage" aria-live="polite"></p>
+            <div class="gpa-output" id="gpaOutput" hidden></div>
+            <p class="sample-hint">CGPA can be calculated by entering the semester SGPA values with equal semester
+                weights.</p>
+        </div>
+        <div class="gpa-card">
+            <h3>CGPA Calculator</h3>
+
+            <label for="semesterGPAs">
+                Enter Semester SGPAs (comma separated)
+            </label>
+
+            <input type="text" id="semesterGPAs" placeholder="Example: 8.5, 9.0, 8.2, 9.1">
+            <label for="semesterCredits">Semester Credits(comma separated)
+            </label>
+            <input type="text" id="semesterCredits" placeholder="20, 22, 21, 23">
+
+            <button id="cgpaBtn" type="button">
+                Calculate CGPA
+            </button>
+
+            <div id="cgpaOutput" class="gpa-output" hidden></div>
+        </div>
+    </section>
+
+    <section class="results-section" id="analytics">
+        <div class="section-heading">
+            <span>PERFORMANCE REPORT</span>
+            <h2>Subject Analytics</h2>
+            <p>Explore subject-wise pass percentages using sample student data.</p>
+        </div>
+        <div class="search-box">
+            <div id="analyticsContent">Search a demo hall ticket above to display subject analytics.</div>
+        </div>
+    </section>
+
+    <section class="results-section" id="leaderboard">
+        <div class="section-heading">
+            <span>ACADEMIC RANKINGS</span>
+            <h2>Topper Leaderboard 🏆</h2>
+            <p>Sample student rankings by CGPA.</p>
+        </div>
+        <div class="search-box table-container">
+            <table class="marks-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Student</th>
+                        <th>Hall Ticket</th>
+                        <th>CGPA</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="cgpa-distribution">
+        <div class="section-heading">
+            <span>STUDENT PERFORMANCE</span>
+            <h2>CGPA Distribution</h2>
+            <p>Sample distribution of student CGPA scores.</p>
+        </div>
+        <div class="search-box">
+            <div id="distributionChart" class="distribution-chart"></div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <span>ABOUT MARKMIRROR</span>
+            <h2>Making Academic Results <span>Simple and Smart.</span></h2>
+            <p>MarkMirror is an academic result lookup and analytics dashboard designed to help students understand
+                their examination performance and academic progress.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="logo"><span class="logo-icon">M</span> MarkMirror</div>
+        <p>ResultRadar Rush – Hackathon Project</p>
+        <p class="copyright">© <span id="year"></span> MarkMirror. Designed for Academic Excellence.</p>
+        <p>Demo project – sample data only, not official results.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
